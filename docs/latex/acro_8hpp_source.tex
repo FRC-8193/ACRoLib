@@ -1,0 +1,75 @@
+\hypertarget{acro_8hpp_source}{}\doxysection{acro.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifdef ACRO\_FEATURE\_LOG}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef ACRO\_LOG\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define ACRO\_LOG\_HPP}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <spdlog/spdlog.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }acro \{}
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }log \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }DSSink : \textcolor{keyword}{public} spdlog::sinks::sink \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} set\_pattern(\textcolor{keyword}{const} std::string\& pattern) \textcolor{keyword}{override};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} set\_formatter(std::unique\_ptr<spdlog::formatter> \_) \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} log(\textcolor{keyword}{const} spdlog::details::log\_msg\& msg) \textcolor{keyword}{override};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} flush() \textcolor{keyword}{override};}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     std::string pattern = \textcolor{stringliteral}{"{}\{\} [\{\}] -\/ \{\}"{}};}
+\DoxyCodeLine{22 \}; \textcolor{comment}{// class DSSink}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{25 \textcolor{keyword}{typename} std::enable\_if<std::is\_base\_of<spdlog::sinks::sink, T>::value>::type}
+\DoxyCodeLine{26 setup\_logging(\textcolor{keyword}{const} spdlog::level::level\_enum level) \{}
+\DoxyCodeLine{27     \textcolor{keyword}{auto} sink = std::make\_shared<T>();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{auto} logger = std::make\_shared<spdlog::logger>(\textcolor{stringliteral}{"{}ACRoLib"{}}, sink);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     logger-\/>set\_level(level);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     spdlog::set\_default\_logger(logger);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     spdlog::info(\textcolor{stringliteral}{"{}ACRoLib logging enabled!"{}});}
+\DoxyCodeLine{36 \}}
+\DoxyCodeLine{37 \} \textcolor{comment}{// namespace log}}
+\DoxyCodeLine{38 \} \textcolor{comment}{// namespace acro}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef ACRO\_IMPL}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{namespace }acro \{}
+\DoxyCodeLine{47 \textcolor{keyword}{namespace }log \{}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} DSSink::set\_pattern(\textcolor{keyword}{const} std::string \&pattern) \{}
+\DoxyCodeLine{50     this-\/>pattern = pattern;}
+\DoxyCodeLine{51 \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} DSSink::set\_formatter(std::unique\_ptr<spdlog::formatter> sink\_formatter) \{}
+\DoxyCodeLine{54     spdlog::warn(\textcolor{stringliteral}{"{}Attempted to set a formatter for DSSink, which is unsupported and will be ignored!"{}});}
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keywordtype}{void} DSSink::log(\textcolor{keyword}{const} spdlog::details::log\_msg\& msg) \{}
+\DoxyCodeLine{58     std::string message = fmt::format(this-\/>pattern, msg.time, spdlog::level::to\_string\_view(msg.level), msg.payload);}
+\DoxyCodeLine{59         \textcolor{comment}{// TODO: WPILib logging}}
+\DoxyCodeLine{60     std::cout << message << std::endl;}
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} DSSink::flush() \{}
+\DoxyCodeLine{64     std::cout.flush();}
+\DoxyCodeLine{65 \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \} \textcolor{comment}{// namespace log}}
+\DoxyCodeLine{68 \} \textcolor{comment}{// namespace acro}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

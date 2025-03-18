@@ -2,11 +2,16 @@
 #define ACRO_LOG_HPP
 
 #include <spdlog/spdlog.h>
-#include <type_traits>
 
 namespace acro {
 namespace log {
 
+/**
+* @class DSSink
+* @brief A logging sink for the NI Driver Station.
+*
+* This may be passed into @ref acro::log::setup_logging() as a valid sink.
+*/
 class DSSink : public spdlog::sinks::sink {
 public:
 	void set_pattern(const std::string& pattern) override;
@@ -19,9 +24,13 @@ private:
 	std::string pattern = "{} [{}] - {}";
 }; // class DSSink
 
+/**
+* @brief Initialize the logging system, with the specified sink and log level.
+* @tparam T The logger sink to use. @see spdlog::sinks::sink.
+* @param level The log level to use.
+*/
 template<typename T>
-typename std::enable_if<std::is_base_of<spdlog::sinks::sink, T>::value>::type
-setup_logging(const spdlog::level::level_enum level) {
+void setup_logging(spdlog::level::level_enum level) {
 	auto sink = std::make_shared<T>();
 
 	auto logger = std::make_shared<spdlog::logger>("ACRoLib", sink);
@@ -35,6 +44,6 @@ setup_logging(const spdlog::level::level_enum level) {
 } // namespace log
 } // namespace acro
 
-#endif
+#endif // ACRO_LOG_HPP
 
 //![SOURCE] ./src/log.cpp
