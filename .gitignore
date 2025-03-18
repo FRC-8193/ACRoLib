@@ -1,2 +1,3 @@
 .clangd
 test.cpp
+./test
