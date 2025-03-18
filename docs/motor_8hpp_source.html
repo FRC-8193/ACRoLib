@@ -71,42 +71,64 @@ $(function() {
   <div class="headertitle"><div class="title">motor.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="motor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ACRO_BASE_MOTOR_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ACRO_BASE_MOTOR_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceacro.html">acro</a> {</div>
+<a href="motor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;typeindex&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef ACRO_BASE_MOTOR_HPP</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define ACRO_BASE_MOTOR_HPP</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classacro_1_1BaseMotorImpl.html">BaseMotorImpl</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structacro_1_1BaseMotorImpl_1_1Config.html">   14</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a> {};</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">   16</a></span>    <span class="keyword">inline</span> <a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">BaseMotorImpl</a>() {}</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">   21</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">is_ok</a>() = 0;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}; <span class="comment">// class BaseMotorImpl</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classacro_1_1Motor.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classacro_1_1Motor.html">Motor</a> {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Hardware&gt;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classacro_1_1Motor.html#acd9a32cad925da1df342a41f7bc1b608">   35</a></span>    <a class="code hl_function" href="classacro_1_1Motor.html#acd9a32cad925da1df342a41f7bc1b608">Motor</a>(<span class="keyword">const</span> <span class="keyword">typename</span> Hardware::Config&amp; config) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        this-&gt;impl = std::make_unique&lt;Hardware&gt;(config);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::unique_ptr&lt;BaseMotorImpl&gt; impl;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}; <span class="comment">// class Motor</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>} <span class="comment">// namespace acro</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">// ACRO_BASE_MOTOR_HPP</span></div>
-<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html">acro::BaseMotorImpl</a></div><div class="ttdoc">A base motor/motor controller interface. Classes implementing this interface should define a struct C...</div><div class="ttdef"><b>Definition:</b> motor.hpp:12</div></div>
-<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html_a046b98b01f38c42e223ae0ea05d73f54"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">acro::BaseMotorImpl::BaseMotorImpl</a></div><div class="ttdeci">BaseMotorImpl()</div><div class="ttdef"><b>Definition:</b> motor.hpp:16</div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceacro.html">acro</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classacro_1_1BaseMotorImpl.html">BaseMotorImpl</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structacro_1_1BaseMotorImpl_1_1Config.html">   17</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structacro_1_1BaseMotorImpl_1_1Config.html#a9ceb139f2a23bb4adb12ad3a7beaea49">   18</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classacro_1_1BaseMotorImpl.html">MotorType</a> = <a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">BaseMotorImpl</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">   21</a></span>    <span class="keyword">inline</span> <a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">BaseMotorImpl</a>() {}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">   26</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">is_ok</a>() = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#ac4a92bd4e314aa016697376143e06d6c">   29</a></span>    T *<a class="code hl_function" href="classacro_1_1BaseMotorImpl.html#ac4a92bd4e314aa016697376143e06d6c">get_feature</a>() {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">features</a>.find(<span class="keyword">typeid</span>(T)) != this-&gt;features.end()) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keywordflow">return</span> (T *) this-&gt;<a class="code hl_variable" href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">features</a>.at(<span class="keyword">typeid</span>(T));</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> (T *)<span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">   37</a></span>    std::unordered_map&lt;std::type_index, void *&gt; <a class="code hl_variable" href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">features</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}; <span class="comment">// class BaseMotorImpl</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classacro_1_1Motor.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="classacro_1_1Motor.html">Motor</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classacro_1_1Motor.html#a61276b64a845ddc144134edfc9e1521d">   51</a></span>    <a class="code hl_function" href="classacro_1_1Motor.html#a61276b64a845ddc144134edfc9e1521d">Motor</a>(<span class="keyword">const</span> T&amp; config) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        this-&gt;impl = std::make_unique&lt;typename T::MotorType&gt;(config);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classacro_1_1Motor.html#a304d139bcdfe7c572a0b3240ce6aea55">   55</a></span>    <a class="code hl_class" href="classacro_1_1BaseMotorImpl.html">BaseMotorImpl</a> *<a class="code hl_function" href="classacro_1_1Motor.html#a304d139bcdfe7c572a0b3240ce6aea55">operator-&gt;</a>() {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> this-&gt;impl.get();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::unique_ptr&lt;BaseMotorImpl&gt; impl;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}; <span class="comment">// class Motor</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <span class="comment">// namespace acro</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// ACRO_BASE_MOTOR_HPP</span></div>
+<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html">acro::BaseMotorImpl</a></div><div class="ttdoc">A base motor/motor controller interface. Classes implementing this interface should define a struct C...</div><div class="ttdef"><b>Definition:</b> motor.hpp:15</div></div>
+<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html_a046b98b01f38c42e223ae0ea05d73f54"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54">acro::BaseMotorImpl::BaseMotorImpl</a></div><div class="ttdeci">BaseMotorImpl()</div><div class="ttdef"><b>Definition:</b> motor.hpp:21</div></div>
 <div class="ttc" id="aclassacro_1_1BaseMotorImpl_html_a0f9526849bd13d15d79d27d09ed0ba6a"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">acro::BaseMotorImpl::is_ok</a></div><div class="ttdeci">virtual bool is_ok()=0</div><div class="ttdoc">Check if the motor was created properly and has no fatal errors.</div></div>
-<div class="ttc" id="aclassacro_1_1Motor_html"><div class="ttname"><a href="classacro_1_1Motor.html">acro::Motor</a></div><div class="ttdoc">A software interface with a motor or motor controller.</div><div class="ttdef"><b>Definition:</b> motor.hpp:27</div></div>
-<div class="ttc" id="aclassacro_1_1Motor_html_acd9a32cad925da1df342a41f7bc1b608"><div class="ttname"><a href="classacro_1_1Motor.html#acd9a32cad925da1df342a41f7bc1b608">acro::Motor::Motor</a></div><div class="ttdeci">Motor(const typename Hardware::Config &amp;config)</div><div class="ttdoc">Create a new motor.</div><div class="ttdef"><b>Definition:</b> motor.hpp:35</div></div>
-<div class="ttc" id="anamespaceacro_html"><div class="ttname"><a href="namespaceacro.html">acro</a></div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
-<div class="ttc" id="astructacro_1_1BaseMotorImpl_1_1Config_html"><div class="ttname"><a href="structacro_1_1BaseMotorImpl_1_1Config.html">acro::BaseMotorImpl::Config</a></div><div class="ttdef"><b>Definition:</b> motor.hpp:14</div></div>
+<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html_a53490f718f14c6878a3885c5bbcd3389"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">acro::BaseMotorImpl::features</a></div><div class="ttdeci">std::unordered_map&lt; std::type_index, void * &gt; features</div><div class="ttdef"><b>Definition:</b> motor.hpp:37</div></div>
+<div class="ttc" id="aclassacro_1_1BaseMotorImpl_html_ac4a92bd4e314aa016697376143e06d6c"><div class="ttname"><a href="classacro_1_1BaseMotorImpl.html#ac4a92bd4e314aa016697376143e06d6c">acro::BaseMotorImpl::get_feature</a></div><div class="ttdeci">T * get_feature()</div><div class="ttdef"><b>Definition:</b> motor.hpp:29</div></div>
+<div class="ttc" id="aclassacro_1_1Motor_html"><div class="ttname"><a href="classacro_1_1Motor.html">acro::Motor</a></div><div class="ttdoc">A software interface with a motor or motor controller.</div><div class="ttdef"><b>Definition:</b> motor.hpp:43</div></div>
+<div class="ttc" id="aclassacro_1_1Motor_html_a304d139bcdfe7c572a0b3240ce6aea55"><div class="ttname"><a href="classacro_1_1Motor.html#a304d139bcdfe7c572a0b3240ce6aea55">acro::Motor::operator-&gt;</a></div><div class="ttdeci">BaseMotorImpl * operator-&gt;()</div><div class="ttdef"><b>Definition:</b> motor.hpp:55</div></div>
+<div class="ttc" id="aclassacro_1_1Motor_html_a61276b64a845ddc144134edfc9e1521d"><div class="ttname"><a href="classacro_1_1Motor.html#a61276b64a845ddc144134edfc9e1521d">acro::Motor::Motor</a></div><div class="ttdeci">Motor(const T &amp;config)</div><div class="ttdoc">Create a new motor.</div><div class="ttdef"><b>Definition:</b> motor.hpp:51</div></div>
+<div class="ttc" id="anamespaceacro_html"><div class="ttname"><a href="namespaceacro.html">acro</a></div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
+<div class="ttc" id="astructacro_1_1BaseMotorImpl_1_1Config_html"><div class="ttname"><a href="structacro_1_1BaseMotorImpl_1_1Config.html">acro::BaseMotorImpl::Config</a></div><div class="ttdef"><b>Definition:</b> motor.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

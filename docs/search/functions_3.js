@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_0',['log',['../classacro_1_1log_1_1DSSink.html#a11367ef908af5ab01cd686f083c7a079',1,'acro::log::DSSink']]]
+  ['is_5fok_0',['is_ok',['../classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a',1,'acro::BaseMotorImpl']]]
 ];

@@ -2,6 +2,8 @@
 #define ACRO_LOG_HPP
 
 #include <spdlog/spdlog.h>
+#include <spdlog/sinks/sink.h>
+#include <spdlog/fmt/bundled/chrono.h>
 
 namespace acro {
 namespace log {

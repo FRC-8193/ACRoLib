@@ -71,12 +71,13 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classacro_1_1BaseMotorImpl-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">acro::BaseMotorImpl Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A base motor/motor controller interface. Classes implementing this interface should define a struct <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a>, a Constructor(const Config&amp;), and implement all pure virtual functions.  
+<p>A base motor/motor controller interface. Classes implementing this interface should define a struct <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a>, a Constructor(const Config&amp;), and implement all pure virtual functions. NOTE: The <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a> struct should include a using MotorType = X; where X is the class implementing <a class="el" href="classacro_1_1BaseMotorImpl.html" title="A base motor/motor controller interface. Classes implementing this interface should define a struct C...">BaseMotorImpl</a>.  
  <a href="classacro_1_1BaseMotorImpl.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="motor_8hpp_source.html">motor.hpp</a>&gt;</code></p>
@@ -93,9 +94,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f9526849bd13d15d79d27d09ed0ba6a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">is_ok</a> ()=0</td></tr>
 <tr class="memdesc:a0f9526849bd13d15d79d27d09ed0ba6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the motor was created properly and has no fatal errors.  <a href="classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a">More...</a><br /></td></tr>
 <tr class="separator:a0f9526849bd13d15d79d27d09ed0ba6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a92bd4e314aa016697376143e06d6c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac4a92bd4e314aa016697376143e06d6c"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classacro_1_1BaseMotorImpl.html#ac4a92bd4e314aa016697376143e06d6c">get_feature</a> ()</td></tr>
+<tr class="separator:ac4a92bd4e314aa016697376143e06d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a53490f718f14c6878a3885c5bbcd3389"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::type_index, void * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1BaseMotorImpl.html#a53490f718f14c6878a3885c5bbcd3389">features</a></td></tr>
+<tr class="separator:a53490f718f14c6878a3885c5bbcd3389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A base motor/motor controller interface. Classes implementing this interface should define a struct <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a>, a Constructor(const Config&amp;), and implement all pure virtual functions. </p>
+<div class="textblock"><p >A base motor/motor controller interface. Classes implementing this interface should define a struct <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a>, a Constructor(const Config&amp;), and implement all pure virtual functions. NOTE: The <a class="el" href="structacro_1_1BaseMotorImpl_1_1Config.html">Config</a> struct should include a using MotorType = X; where X is the class implementing <a class="el" href="classacro_1_1BaseMotorImpl.html" title="A base motor/motor controller interface. Classes implementing this interface should define a struct C...">BaseMotorImpl</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a046b98b01f38c42e223ae0ea05d73f54" name="a046b98b01f38c42e223ae0ea05d73f54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a046b98b01f38c42e223ae0ea05d73f54">&#9670;&nbsp;</a></span>BaseMotorImpl()</h2>
@@ -123,6 +132,33 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac4a92bd4e314aa016697376143e06d6c" name="ac4a92bd4e314aa016697376143e06d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a92bd4e314aa016697376143e06d6c">&#9670;&nbsp;</a></span>get_feature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T * acro::BaseMotorImpl::get_feature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0f9526849bd13d15d79d27d09ed0ba6a" name="a0f9526849bd13d15d79d27d09ed0ba6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f9526849bd13d15d79d27d09ed0ba6a">&#9670;&nbsp;</a></span>is_ok()</h2>
 
@@ -147,6 +183,29 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Check if the motor was created properly and has no fatal errors. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a53490f718f14c6878a3885c5bbcd3389" name="a53490f718f14c6878a3885c5bbcd3389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53490f718f14c6878a3885c5bbcd3389">&#9670;&nbsp;</a></span>features</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::type_index, void *&gt; acro::BaseMotorImpl::features</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fok_0',['is_ok',['../classacro_1_1BaseMotorImpl.html#a0f9526849bd13d15d79d27d09ed0ba6a',1,'acro::BaseMotorImpl']]]
+  ['get_5ffeature_0',['get_feature',['../classacro_1_1BaseMotorImpl.html#ac4a92bd4e314aa016697376143e06d6c',1,'acro::BaseMotorImpl']]]
 ];
