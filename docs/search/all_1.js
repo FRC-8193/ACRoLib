@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['base_5fmotor_2ehpp_0',['base_motor.hpp',['../base__motor_8hpp.html',1,'']]]
+  ['basemotorimpl_0',['BaseMotorImpl',['../classacro_1_1BaseMotorImpl.html',1,'acro::BaseMotorImpl'],['../classacro_1_1BaseMotorImpl.html#a046b98b01f38c42e223ae0ea05d73f54',1,'acro::BaseMotorImpl::BaseMotorImpl()']]]
 ];

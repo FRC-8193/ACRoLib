@@ -16,3 +16,6 @@
 
 .LOG
 ./include/acro/log.hpp
+
+.MOTOR
+./include/acro/motor.hpp

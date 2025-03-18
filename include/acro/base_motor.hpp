@@ -1,4 +1,0 @@
-#ifndef ACRO_BASE_MOTOR_HPP
-#define ACRO_BASE_MOTOR_HPP
-
-#endif // ACRO_BASE_MOTOR_HPP

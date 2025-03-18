@@ -1,3 +1,5 @@
+# TODO: rewrite this so it's less clearly AI
+
 # ACRoLib
 
 ACRoLib (A Comprehensive Robotics Library) is a robotics library designed for the FIRST Robotics Competition (FRC). It provides a set of tools and utilities to streamline robot development and enhance performance.
@@ -17,15 +19,13 @@ To integrate ACRoLib into your FRC project:
    git clone https://github.com/frc-8193/ACRoLib.git
    ```
 2. **Include the Library**:
-   - Copy the `include` and `src` directories into your project's directory.
-   - Ensure that your build system is configured to include the headers from the `include` directory and to compile the source files from the `src` directory.
-
+# TODO: this
 ## Usage
 
 After integrating the library, you can include its headers in your source files:
 
 ```cpp
-#include "ACRoLib/SomeHeader.hpp"
+#include <acro/some_module.hpp>
 ```
 
 Utilize the library's functions as needed in your robot's codebase.
@@ -48,7 +48,7 @@ We welcome contributions to enhance ACRoLib. To contribute:
 
 Please ensure that your code adheres to the project's coding standards and includes appropriate tests.
 
-## License
+## Legal
 
 ACRoLib is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
