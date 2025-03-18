@@ -18,10 +18,19 @@ def load_module(name, path):
                 if act == "SOURCE":
                     output_lines.append("#ifdef ACRO_IMPL")
                     
-                    path = line.split("]")[1].strip()
+                    source_path = line.split("]")[1].strip()
 
-                    with open(path, "r") as source:
+                    with open(source_path, "r") as source:
                         for line in source:
+                                # stop a module's source from including its own header file
+                            include_rx = r'#include\s*["<](.*?)[">]'
+                            matches = re.findall(include_rx, line)
+
+                            if len(matches) > 0:
+                                included_path = matches[0]
+                                if "./include/" + included_path == path:
+                                   continue
+
                             output_lines.append(line[:-1])
 
                     output_lines.append("#endif")

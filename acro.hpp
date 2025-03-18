@@ -1,5 +1,4 @@
 #pragma once
-
 #ifdef ACRO_FEATURE_LOG
 #ifndef ACRO_LOG_HPP
 #define ACRO_LOG_HPP
@@ -41,7 +40,6 @@ setup_logging(const spdlog::level::level_enum level) {
 #endif
 
 #ifdef ACRO_IMPL
-#include <acro/log.hpp>
 
 #include <iostream>
 
