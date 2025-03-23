@@ -14,8 +14,3 @@
 / modules are inserted to the output as #ifdef ACRO_FEATURE_NAME, followed by the processed contents of the header, followed by #endif
 !#pragma once
 
-.LOG
-./include/acro/log.hpp
-
-.MOTOR
-./include/acro/motor.hpp

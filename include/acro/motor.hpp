@@ -1,64 +1,32 @@
-#include <memory>
-#include <unordered_map>
+#pragma once
 #include <typeindex>
-
-#ifndef ACRO_BASE_MOTOR_HPP
-#define ACRO_BASE_MOTOR_HPP
+#include <cstdint>
 
 namespace acro {
+	class Motor;
+	class MotorFeature;
+}
 
-/**
-* @brief A base motor/motor controller interface.
-* Classes implementing this interface should define a struct Config, a Constructor(const Config&), and implement all pure virtual functions.
-* NOTE: The Config struct should include a using MotorType = X; where X is the class implementing BaseMotorImpl.
-*/
-class BaseMotorImpl {
+class acro::MotorFeature {
 public:
-	struct Config {
-		using MotorType = BaseMotorImpl;
-	};
-
-	inline BaseMotorImpl() {}
-
-	/**
-	* @brief Check if the motor was created properly and has no fatal errors.
-	*/
-	virtual bool is_ok() = 0;
-
-	template<typename T>
-	T *get_feature() {
-		if (this->features.find(typeid(T)) != this->features.end()) {
-			return (T *) this->features.at(typeid(T));
-		}
-
-		return (T *)nullptr;
-	}
-protected:
-	std::unordered_map<std::type_index, void *> features;
-}; // class BaseMotorImpl
-
-/**
-* @brief A software interface with a motor or motor controller.
-*/
-class Motor {
-public:
-	/**
-	* @brief Create a new motor.
-	* @tparam T The motor controller implementation type. (See @ref acro::BaseMotorImpl)
-	* @param config The configuration, corresponding to the specified hardware.
-	*/
-	template<typename T>
-	Motor(const T& config) {
-		this->impl = std::make_unique<typename T::MotorType>(config);
-	}
-
-	BaseMotorImpl *operator->() {
-		return this->impl.get();
-	}
+	using ID = uint64_t;
 
 private:
-	std::unique_ptr<BaseMotorImpl> impl;
-}; // class Motor
-} // namespace acro
+	ID current_uuid = 0;
 
-#endif // ACRO_BASE_MOTOR_HPP
+protected:
+	template<typename T>
+	ID get_uuid() {
+		static const int uuid = current_uuid++;
+		return uuid;
+	}
+};
+
+class acro::Motor {
+public:
+	Motor() = delete;
+
+	const MotorFeature& get_feature(MotorFeature::ID id) const;
+
+	virtual ~Motor() = 0;
+};

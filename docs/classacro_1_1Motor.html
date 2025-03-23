@@ -71,34 +71,27 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classacro_1_1Motor-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">acro::Motor Class Reference</div></div>
+  <div class="headertitle"><div class="title">acro::Motor Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>A software interface with a motor or motor controller.  
- <a href="classacro_1_1Motor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="motor_8hpp_source.html">motor.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61276b64a845ddc144134edfc9e1521d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a61276b64a845ddc144134edfc9e1521d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classacro_1_1Motor.html#a61276b64a845ddc144134edfc9e1521d">Motor</a> (const T &amp;config)</td></tr>
-<tr class="memdesc:a61276b64a845ddc144134edfc9e1521d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new motor.  <a href="classacro_1_1Motor.html#a61276b64a845ddc144134edfc9e1521d">More...</a><br /></td></tr>
-<tr class="separator:a61276b64a845ddc144134edfc9e1521d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a304d139bcdfe7c572a0b3240ce6aea55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classacro_1_1BaseMotorImpl.html">BaseMotorImpl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1Motor.html#a304d139bcdfe7c572a0b3240ce6aea55">operator-&gt;</a> ()</td></tr>
-<tr class="separator:a304d139bcdfe7c572a0b3240ce6aea55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ffee4406b05d26cb7ebb225f71fc125"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1Motor.html#a7ffee4406b05d26cb7ebb225f71fc125">Motor</a> ()=delete</td></tr>
+<tr class="separator:a7ffee4406b05d26cb7ebb225f71fc125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ec489a766e99725e57a051b9c22a1a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classacro_1_1MotorFeature.html">MotorFeature</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1Motor.html#a28ec489a766e99725e57a051b9c22a1a">get_feature</a> (<a class="el" href="classacro_1_1MotorFeature.html#a7bd7e2cb237ed9afbe3798c6956b2790">MotorFeature::ID</a> id) const</td></tr>
+<tr class="separator:a28ec489a766e99725e57a051b9c22a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a859d0c1a29a93f7303f90166663ce00c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacro_1_1Motor.html#a859d0c1a29a93f7303f90166663ce00c">~Motor</a> ()=0</td></tr>
+<tr class="separator:a859d0c1a29a93f7303f90166663ce00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A software interface with a motor or motor controller. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a61276b64a845ddc144134edfc9e1521d" name="a61276b64a845ddc144134edfc9e1521d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61276b64a845ddc144134edfc9e1521d">&#9670;&nbsp;</a></span>Motor()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7ffee4406b05d26cb7ebb225f71fc125" name="a7ffee4406b05d26cb7ebb225f71fc125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ffee4406b05d26cb7ebb225f71fc125">&#9670;&nbsp;</a></span>Motor()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -106,37 +99,21 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">acro::Motor::Motor </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a new motor. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The motor controller implementation type. (See <a class="el" href="classacro_1_1BaseMotorImpl.html">acro::BaseMotorImpl</a>) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>The configuration, corresponding to the specified hardware. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a304d139bcdfe7c572a0b3240ce6aea55" name="a304d139bcdfe7c572a0b3240ce6aea55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a304d139bcdfe7c572a0b3240ce6aea55">&#9670;&nbsp;</a></span>operator-&gt;()</h2>
+<a id="a859d0c1a29a93f7303f90166663ce00c" name="a859d0c1a29a93f7303f90166663ce00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859d0c1a29a93f7303f90166663ce00c">&#9670;&nbsp;</a></span>~Motor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +122,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classacro_1_1BaseMotorImpl.html">BaseMotorImpl</a> * acro::Motor::operator-&gt; </td>
+          <td class="memname">virtual acro::Motor::~Motor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -153,9 +130,28 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a28ec489a766e99725e57a051b9c22a1a" name="a28ec489a766e99725e57a051b9c22a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ec489a766e99725e57a051b9c22a1a">&#9670;&nbsp;</a></span>get_feature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classacro_1_1MotorFeature.html">MotorFeature</a> &amp; acro::Motor::get_feature </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classacro_1_1MotorFeature.html#a7bd7e2cb237ed9afbe3798c6956b2790">MotorFeature::ID</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
