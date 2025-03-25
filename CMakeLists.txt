@@ -7,4 +7,4 @@ set(FRC_TEAM_NUMBER 8193)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(build-wpilib ${CMAKE_BINARY_DIR})
+add_subdirectory(build-wpilib ${CMAKE_BINARY_DIR}/wpi)
